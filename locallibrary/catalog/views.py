@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from .models import Book, Author, BookInstance
+from .models import Book, Author, BookInstance, Genre
 from django.views import generic
 
 
@@ -20,6 +20,14 @@ class AuthorListView(generic.ListView):
 class AuthorDetailView(generic.DetailView):
     model = Author
 
+class GenreListView(generic.ListView):
+    model = Genre
+    paginate_by = 10
+
+class GenreDetailView(generic.DetailView):
+    model = Genre
+
+
 
 def index(request):
     """View function for home page of site."""
@@ -33,12 +41,14 @@ def index(request):
 
     # The 'all()' is implied by default.
     num_authors = Author.objects.count()
+    num_genres = Genre.objects.count()
 
     context = {
         'num_books': num_books,
         'num_instances': num_instances,
         'num_instances_available': num_instances_available,
         'num_authors': num_authors,
+        'num_genres': num_genres,
     }
 
     # Render the HTML template index.html with the data in the context variable

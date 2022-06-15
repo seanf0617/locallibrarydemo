@@ -11,6 +11,10 @@ class Genre(models.Model):
         """String for representing the Model object."""
         return self.name
 
+    def get_absolute_url(self):
+        """Returns the URL to access a detail record for this book."""
+        return reverse('genre-detail', args=[str(self.id)])
+
 
 class Book(models.Model):
     """Model representing a book (but not a specific copy of a book)."""
