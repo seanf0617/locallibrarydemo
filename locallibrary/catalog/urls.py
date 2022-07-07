@@ -10,5 +10,6 @@ urlpatterns = [
     path('genres/', views.GenreListView.as_view(), name='genres'),
     path('genre/<int:pk>', views.GenreDetailView.as_view(), name='genre-detail'),
     path('mybooks/', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
+    path('borrowed/', views.LoanedBookListView.as_view(), name='borrowed'),
     path('book/<uuid:pk>/renew/', views.renew_book_librarian, name='renew-book-librarian'),
 ]
