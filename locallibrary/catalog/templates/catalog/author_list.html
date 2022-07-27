@@ -6,7 +6,9 @@
   <ul>
     {% for author in author_list %}
       <li><tr>
-        <a href="{{author.get_absolute_url}}"> {{ author }} </a> ({{author.date_of_birth}} - {{author.date_of_death}})
+        <a href="{{author.get_absolute_url}}"> {{ author }} </a> ({{author.date_of_birth}} - {{author.date_of_death}}) 
+        {% if perms.catalog.can_mark_returned %}- <a href="{% url 'author-update' author.id %}">Update</a> 
+        -- <a href="{% url 'author-delete' author.id %}">Delete</a> {% endif %}
       </li></tr>
     {% endfor %}
   </ul>
