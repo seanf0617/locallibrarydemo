@@ -40,7 +40,8 @@
           <ul class="sidebar-nav">
           <li>Staff</li>
           {% if perms.auth.change_user %}
-          <li><a href="{% url 'borrowed' %}">All borrowed</a></li>
+          <li><a href="{% url 'borrowed' %}">All borrowed Books</a></li>
+          <li><a href="{% url 'author-create' %}">Create Author</a></li>
           {% endif %}
           </ul>
           {% endif %}
