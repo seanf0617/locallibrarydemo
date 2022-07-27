@@ -136,3 +136,24 @@ class AuthorUpdate(UpdateView):
 class AuthorDelete(DeleteView):
     model = Author
     success_url = reverse_lazy('authors')
+
+
+from catalog.models import Book
+
+###  Add security to block unautorized use !!!  PermissionRequiredMixin and can_mark_returned
+class BookCreate(CreateView):
+    model = Book
+#    fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death']
+    fields = '__all__' # Not recommended (potential security issue if more fields added)
+#    success_url = reverse_lazy('authors')
+
+###  Add security to block unautorized use !!!  PermissionRequiredMixin and can_mark_returned
+class BookUpdate(UpdateView):
+    model = Book
+    fields = '__all__' # Not recommended (potential security issue if more fields added)
+#    success_url = reverse_lazy('authors')
+
+###  Add security to block unautorized use !!!  PermissionRequiredMixin and can_mark_returned
+class BookDelete(DeleteView):
+    model = Book
+    success_url = reverse_lazy('books')
