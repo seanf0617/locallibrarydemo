@@ -39,7 +39,7 @@
           <hr>
           <ul class="sidebar-nav">
           <li>Staff</li>
-          {% if perms.catalog.can_mark_returned %}
+          {% if perms.auth.change_user %}
           <li><a href="{% url 'borrowed' %}">All borrowed</a></li>
           {% endif %}
           </ul>
