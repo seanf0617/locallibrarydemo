@@ -124,6 +124,8 @@ from catalog.models import Author
 class AuthorCreate(CreateView):
     model = Author
     fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death']
+    initial = {'date_of_death':'12/10/2016'}
+    permission_required = 'catalog.can_mark_returned'
     success_url = reverse_lazy('authors')
 
 ###  Add security to block unautorized use !!!  PermissionRequiredMixin and can_mark_returned
