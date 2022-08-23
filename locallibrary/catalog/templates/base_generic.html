@@ -37,8 +37,8 @@
           -------
           <hr>
           <ul class="sidebar-nav">
-          <li>Staff</li>
           {% if perms.catalog.can_mark_returned %}
+          <li>Staff</li>
           <li><a href="{% url 'borrowed' %}">All borrowed Books</a></li>
           <li><a href="{% url 'author-create' %}">Add Author</a></li>
           <li><a href="{% url 'book-create' %}">Add Book</a></li>
