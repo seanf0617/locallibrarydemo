@@ -22,9 +22,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-hn()7zu-4^*g*x75+xgakk7jpsecw*b(46%107d*m&rsl2!ze2'
+# # Read SECRET_KEY from an environment variable
+# import os
+# SECRET_KEY = os.environ['SECRET_KEY']
+# OR
+# # Read secret key from a file
+# with open('/etc/secret_key.txt') as f:
+#     SECRET_KEY = f.read().strip()
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# Enable when go to Prod and comment out previous line
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = []
 
